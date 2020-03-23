@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Do the ideological biases of corporate boards constrain the giving of corporate PACs? Previous literature shows that corporate PACs' board of directors are ideologically heterogeneous and PACs are strategically centrists in terms of their profile of campaign contribution. However, there is little literature on why and how corporate PACs' political spending can be constrained by corporate elites. My finding shows that the more ideologically homogeneous boardroom, the more corporate PAC spending. This finding can be explained by a theory of internal constraints in interest groups' activities in that donors of interest groups can constrain the groups' political contributions. This paper's finding suggests that corporate PACs are not only constrained by the donors but also they can be constrained by corporate elites in that the board of directors can influence PACs' amount of spending. This paper's findings can help us to better understand why there is so little money in politics and why corporate PACs are concentrated in the center of ideological spectrum.
 
 
-```{r,  message=FALSE}
+```{r, message=FALSE,warning=FALSE,echo=T}
 
 library(ggplot2)
 library(dplyr)
@@ -33,7 +33,7 @@ dat <- within(dat, {
 })
 ```
 
-```{r,echo=F}
+```{r, message=FALSE,warning=FALSE,echo=T}
 #axis dollar tick
 fancy_scientific <- function(l) {
   # turn in to character string in scientific notation
@@ -92,7 +92,7 @@ human_num   <- function(x){human_numbers(x, smbl = "")}
 
 You can also embed plots, for example:
 
-```{r, echo=FALSE}
+```{r, message=FALSE,warning=FALSE,echo=T}
 
 p1<-ggplot(dat, aes(sum12, fill = sector)) + geom_density() + 
   facet_grid(sector ~ ., margins = TRUE, scales = "free")+
@@ -105,7 +105,7 @@ p1+theme(plot.title=element_text(hjust=0.5))
 ```
 
 
-```{r , echo=FALSE}
+```{r , message=FALSE,warning=FALSE,echo=T}
 
 p3<-ggplot(dat, aes(var.dime.cfscore)) + geom_density()+
   annotate("text", x = 0.147641, y = 1, angle = 90, label = paste("Democrat"), 
@@ -122,7 +122,7 @@ p3
 ```
 
 
-```{r , echo=FALSE}
+```{r , message=FALSE,warning=FALSE,echo=T}
 bod<-read.csv("C:/Users/wooki/Dropbox/APB/bod.csv",header=TRUE)
 data<-subset(bod, bod$corp.name=="google")
 (ids <- sample(unique(data$corp.name), 1))
@@ -148,18 +148,17 @@ g
 
 
 
-```{r , echo=FALSE}
+```{r , message=FALSE,warning=FALSE,echo=T}
 p4<-ggplot(dat, aes(y=sum12, x = var.dime.cfscore)) + geom_point() +
   labs(x="Variance of BOD CFscores",y="Corporate PAC's total spending")+
   scale_y_continuous(labels = human_usd)+
   #ggtitle("Corporate PAC's total spending and Varince of BOD's CFscores")+
   theme_classic()
-p4
 p4+theme(plot.title=element_text(hjust=0.5))
 
 ```
 
-```{r}
+```{r, message=FALSE,warning=FALSE,echo=T}
 m1 <- glm.nb(sum12 ~ var.dime.cfscore+sector+mean.dime.cfscore+p.female, data = dat)
 summary(m1)
 ```
