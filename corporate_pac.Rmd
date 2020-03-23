@@ -101,7 +101,7 @@ p1<-ggplot(dat, aes(sum12, fill = sector)) + geom_density() +
   #ggtitle("Distribution of croporates PAC's spending by sector")+
   labs(x="Corporate PAC's total spending",y="Density")+
   theme_classic()
-p1+theme(plot.title=element_text(hjust=0.5))
+suppressMessages(p1+theme(plot.title=element_text(hjust=0.5)))
 ```
 
 
@@ -118,7 +118,7 @@ p3<-ggplot(dat, aes(var.dime.cfscore)) + geom_density()+
   labs(x="Variance of CFscores within a group",y="Density")+
   #ggtitle("Distribution of variance BOD CFscores within corporates")+
   theme_classic()
-p3
+suppressMessages(p3)
 ```
 
 
@@ -143,7 +143,7 @@ g<-ggplot(data2) +
   labs(x="CFscores",y="")+
   theme_classic()
 
-g
+suppressMessages(g)
 ```
 
 
@@ -154,7 +154,7 @@ p4<-ggplot(dat, aes(y=sum12, x = var.dime.cfscore)) + geom_point() +
   scale_y_continuous(labels = human_usd)+
   #ggtitle("Corporate PAC's total spending and Varince of BOD's CFscores")+
   theme_classic()
-p4+theme(plot.title=element_text(hjust=0.5))
+suppressMessages(p4+theme(plot.title=element_text(hjust=0.5)))
 
 ```
 
