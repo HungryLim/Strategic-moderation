@@ -11,8 +11,8 @@ Why is there a huge variation among large businesses' political spending?
 
 # Types of PACs and corporate PACs’ moderate contribution profile
 <p align="center">
-  <img src="emos.png" width="400" />
-  <img src="table.PNG" width="400"  />
+  <img src="graphs/f1.png" width="400" />
+  <img src="graphs/f2.PNG" width="400"  />
 </p>
 
 
