@@ -29,8 +29,9 @@ Business/corporation PACs spend their money about half on Republican and half on
 # Data
 The [DIME data](https://web.stanford.edu/~bonica/data.html) is from Adam Bonica. Campaign finance score (CFscore) from DIME data is basically one dimensional measure of ideology based on campaign finance spending of individuals or entity (e.g. corporate PAC). The negative score means that liberal ideology and positive score means conservative ideological position based on campaign spending. 
 
-   # Navigating large data with limited RAM (memory)
+  # Navigating large data with limited RAM (memory)
 Since DIME data is large file (as a SQLite file, it is about 80 GB. The data is larger if they are in csv format.), most composters do not have enough ram to load the data. In this case, one way to solve this problem is using SQL. R works well with SQL queries through R packages like SQLite, so using SQL is a solution (Adam Bonica generously provides SQL file for his data). Another way to solve this large file issue is reading a few rows of large file with a loop. Basically, I can read first 1000 rows and I search through necessary data. Then, I read the 1001th row to 2000th in the next loop. This approach will take more time, but when a user is not familiar with SQL, this reading data by a chunk can be one solution. I uploaded my R example code for handling large csv file in R environment ("searching_donors.R"). For this research, I had to subset individual donors who gave moeny to corporate PACs. Therefore, I read large political contribution data to find unique individuals who gave money to corporate PACs.  
+
 
 Fortune 500 companies as of 2012
 
@@ -145,10 +146,4 @@ In this paper, I investigate whether ideological diversity of corporate boards c
 Second, not all PACs are the same. The ideological composition of donors, group elites and the ideology of group itself differ considerably by types. Corporate PACs that have ideologically diverse donors and group leaders. Therefore, business PACs have moderate ideological profile in their campaign contributions. On the contrary, single-issue interest groups are more likely to have ideologically homogeneous donors and group leaders. 
 
 This study contributes literature with a new perspective of explaining interest group's political spending and suggests a theory of "group behavior" considering group elites' ideologies and internal constraints within leaderships. It suggests that ideological diversity within corporate elites could make a hurdle for firms to spend money in politics so that it could help ordinary citizens to have equal voice and influence in politics. 
-
-```r
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
-            
+   
